@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<img id="openCalc" src="dexclose.png" alt="Open Calculator">
+
+<div class="modal" id="calcModal">
+  <div class="modal-content">
+    <input type="text" id="display" disabled>
+
+    <div class="buttons">
+      <button class="num-btn" data-num="7">7</button>
+      <button class="num-btn" data-num="8">8</button>
+      <button class="num-btn" data-num="9">9</button>
+      <button class="op-btn" data-op="/">/</button>
+
+      <button class="num-btn" data-num="4">4</button>
+      <button class="num-btn" data-num="5">5</button>
+      <button class="num-btn" data-num="6">6</button>
+      <button class="op-btn" data-op="*">*</button>
+
+      <button class="num-btn" data-num="1">1</button>
+      <button class="num-btn" data-num="2">2</button>
+      <button class="num-btn" data-num="3">3</button>
+      <button class="op-btn" data-op="-">-</button>
+
+      <button class="num-btn" data-num="0">0</button>
+      <button class="op-btn" data-op=".">.</button>
+      <button class="op-btn" data-op="C">C</button>
+      <button class="op-btn" data-op="+">+</button>
+
+      <!-- keep only this = -->
+      <button class="op-btn equal-btn" data-op="=">=</button>
+    </div>
+
+    <button id="closeCalc">Close</button>
+  </div>
+</div>
+
+<script>
+  const openCalc = document.getElementById("openCalc");
+  const closeCalc = document.getElementById("closeCalc");
+  const modal = document.getElementById("calcModal");
+  const display = document.getElementById("display");
+  const buttons = document.querySelectorAll(".buttons button");
+
+  openCalc.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  closeCalc.addEventListener("click", () => {
+    modal.style.display = "none";
+    display.value = "";
+  });
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const value = button.textContent;
+
+      if (value === "C") {
+        display.value = "";
+      } else if (value === "=") {
+        try {
+          display.value = eval(display.value);
+        } catch {
+          display.value = "Error";
+        }
+      } else {
+        display.value += value;
+      }
+    });
+  });
+</script>
+</body>
+</html>

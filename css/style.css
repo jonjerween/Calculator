@@ -1,0 +1,283 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("../earlygen.png") no-repeat center center;
+  background-size: cover;
+  margin: 0;
+}
+
+#openCalc {
+  width: 400px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  background: url("../dexopen.png") no-repeat center center;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 200px;
+}
+
+
+#display {
+  width: 50%;
+  margin-top: 40px;
+  padding: 0px;
+  font-size: 20px;
+  text-align: right;
+  border: none;
+  background: transparent;   /* makes it see-through */
+  color: #E2F9FF;            /* change this to any color you want */
+  font-size: 30px;           /* adjust font size if needed */
+  border: none;              /* optional, removes border */
+  text-align: right;         /* aligns numbers to the right */
+  outline: none;
+}
+  .buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px;
+  margin-top: 0px;
+  width: 100%;
+}
+
+.equal-row {
+  display: flex;
+  justify-content: center; /* center button horizontally */
+  align-items: center;
+  background: url("../numberbg.png") no-repeat center center;
+  background-size: contain; /* keep aspect ratio */
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 200px; /* adjust to match your image height */
+}
+
+.equal-btn {
+  grid-column: 1 / -1; /* makes it span the full width of the grid */
+  justify-self: center; /* center it by default */
+  width: 80%; /* adjust width smaller than full row */
+  height: 80px;
+  background-image: url("../newequals.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 10%, contain;
+}
+
+
+button {
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: url("../numberbg.png") no-repeat center center;
+  background-size: cover;
+}
+
+
+#closeCalc {
+  width: 80px;  /* change this to adjust size */
+  height: 80px;
+  background-image: url("../close.png");
+  background-size: cover; /* fills the button completely */
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  text-shadow: none;
+}
+
+#openCalc {
+  width: 870px;
+  height: 870px;
+  object-fit: contain; /* keeps the image from stretching weirdly */
+  cursor: pointer;
+}
+
+
+.num-btn {
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  color: transparent;
+  text-shadow: none;
+}
+
+
+
+.num-btn[data-num="0"] { background-image: url("../new0.png"), url("../numberbg.png"); }
+.num-btn[data-num="1"] { background-image: url("../new1.png"), url("../numberbg.png"); }
+.num-btn[data-num="2"] { background-image: url("../new2.png"), url("../numberbg.png"); }
+.num-btn[data-num="3"] { background-image: url("../new3.png"), url("../numberbg.png"); }
+.num-btn[data-num="4"] { background-image: url("../new4.png"), url("../numberbg.png"); }
+.num-btn[data-num="5"] { background-image: url("../new5.png"), url("../numberbg.png"); }
+.num-btn[data-num="6"] { background-image: url("../new6.png"), url("../numberbg.png"); }
+.num-btn[data-num="7"] { background-image: url("../new7.png"), url("../numberbg.png"); }
+.num-btn[data-num="8"] { background-image: url("../new8.png"), url("../numberbg.png"); }
+.num-btn[data-num="9"] { background-image: url("../new9.png"), url("../numberbg.png"); }
+
+.num-btn[data-num="0"] {
+  background-image: url("../new0.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="1"] {
+  background-image: url("../new1.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="2"] {
+  background-image: url("../new2.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="3"] {
+  background-image: url("../new3.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="4"] {
+  background-image: url("../new4.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="5"] {
+  background-image: url("../new5.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="6"] {
+  background-image: url("../new6.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="7"] {
+  background-image: url("../new7.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="8"] {
+  background-image: url("../new8.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.num-btn[data-num="9"] {
+  background-image: url("../new9.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.op-btn[data-op="+"] { background-image: url("../newplus.png"); }
+.op-btn[data-op="-"] { background-image: url("../newsubtract.png"); }
+.op-btn[data-op="*"] { background-image: url("../newtimes.png"); }
+.op-btn[data-op="/"] { background-image: url("../newdivide.png"); }
+.op-btn[data-op="="] { background-image: url("../newequals.png"); }
+.op-btn[data-op="."] { background-image: url("../newdot.png"); }
+.op-btn[data-op="C"] { background-image: url("../newC.png"); }
+
+.op-btn {
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  color: transparent;
+  text-shadow: none;
+}
+
+.op-btn[data-op="+"] {
+  background-image: url("../newplus.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.op-btn[data-op="-"] {
+  background-image: url("../newsubtract.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.op-btn[data-op="*"] {
+  background-image: url("../newtimes.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.op-btn[data-op="/"] {
+  background-image: url("../newdivide.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.op-btn[data-op="="] {
+  background-image: url("../newequals.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, cover;
+
+
+}
+
+
+.op-btn[data-op="."] {
+  background-image: url("../newdot.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
+.op-btn[data-op="C"] {
+  background-image: url("../newC.png"), url("../numberbg.png");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40%, contain;
+}
+
